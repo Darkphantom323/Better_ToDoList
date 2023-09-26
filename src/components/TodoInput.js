@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class TodoInput extends Component {
     render() {
-        const { item, handleChange, handleSubmit, editItem } = this.props
+        const { item, handleChange, handleSubmit, editItem, dueDate, handleDueDateChange, reminder, handleReminderChange } = this.props;
 
         return (
             <div className="card card-body my-3">
@@ -22,10 +22,24 @@ export default class TodoInput extends Component {
                             onChange={handleChange}
                         />
 
+                        <input
+                            type="date"
+                            className="form-control"
+                            value={dueDate}
+                            onChange={handleDueDateChange}
+                        />
+
+                        <input
+                            type="time"
+                            className="form-control"
+                            value={reminder}
+                            onChange={handleReminderChange}
+                        />
+
                         <div className="input-group-append">
                             <button
                                 type="submit"
-                                className={`btn btn-${editItem ? 'success' : 'info'} .btn-block`}
+                                className={`btn btn-primary btn-block`}
                             >
                                 {editItem ? 'Edit task' : 'Add new task'}
                             </button>
@@ -33,6 +47,6 @@ export default class TodoInput extends Component {
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }

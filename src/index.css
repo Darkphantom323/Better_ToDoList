@@ -1,10 +1,13 @@
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont,'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://hbr.org/resources/images/article_assets/2020/08/Aug20_06_84753778.jpg");
+  background-image: -webkit-linear-gradient(65deg, #86a8e3 50%, #e3e9fd 50%);
+  min-height: 1000px;
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -15,5 +18,52 @@ code {
   text-decoration: line-through;
   color: #db3545;
 }
+
+/* Add animation to fade in */
+.list-group-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Add animation to fade out */
+.list-group-item.fade-out {
+  opacity: 0;
+  transform: translateY(-50px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Add custom styling to date and time inputs */
+.custom-date-input {
+  border: none;
+  border-bottom: 2px solid #007bff;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  margin-left: 5px; /* Adjust margin as needed */
+}
+
+.custom-time-input {
+  border: none;
+  border-bottom: 2px solid #007bff;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  margin-left: 5px; /* Adjust margin as needed */
+}
+
+.expanded-view {
+  max-height: 500px;
+  opacity: 1;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.collapsed-view {
+  max-height: 10;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+
 
 

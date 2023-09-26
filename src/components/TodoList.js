@@ -1,5 +1,5 @@
-import React, { Component, Fragment } from 'react'
-import TodoItem from './TodoItem'
+import React, { Component, Fragment } from 'react';
+import TodoItem from './TodoItem';
 
 export default class TodoList extends Component {
     render() {
@@ -10,19 +10,19 @@ export default class TodoList extends Component {
             handleDelete,
             handleEdit,
             handleDoneTask,
-            handleDeleteDoneTasks
-        } = this.props
+            handleDeleteDoneTasks,
+            handleEditSubmit
+        } = this.props;
 
         return (
             <Fragment>
                 <h3 className="text-center custom-font">TodoList</h3>
 
-
                 <div className="row">
                     <div className="d-grid gap-2 col-4 mx-auto">
                         <button
                             type="button"
-                            className="btn btn-info .btn-block btn-primary"
+                            className="btn btn-primary btn-block"
                             onClick={() => updateTodosToShow("all")}
                         >
                             All
@@ -31,7 +31,7 @@ export default class TodoList extends Component {
                     <div className="d-grid gap-2 col-4 mx-auto">
                         <button
                             type="button"
-                            className="btn btn-info btn-block btn-primary"
+                            className="btn btn-primary btn-block"
                             onClick={() => updateTodosToShow("done")}
                         >
                             Done
@@ -40,7 +40,7 @@ export default class TodoList extends Component {
                     <div className="d-grid gap-2 col-4 mx-auto">
                         <button
                             type="button"
-                            className="btn btn-info .btn-block btn-primary"
+                            className="btn btn-primary btn-block"
                             onClick={() => updateTodosToShow("todo")}
                         >
                             Todo
@@ -58,9 +58,13 @@ export default class TodoList extends Component {
                                 id={item.id}
                                 title={item.title}
                                 completed={item.completed}
+                                dueDate={item.dueDate} // pass the due date to TodoItem
                                 handleDelete={() => handleDelete(item.id)}
                                 handleEdit={() => handleEdit(item.id)}
                                 handleDoneTask={handleDoneTask}
+                                fadeOut={item.fadeOut}
+                                handleEditSubmit={handleEditSubmit}
+                                reminder={item.reminder}
                             />
                         ))}
 
@@ -68,7 +72,7 @@ export default class TodoList extends Component {
                             <div className="d-grid gap-2 col-6 mx-auto">
                                 <button
                                     type="button"
-                                    className="btn btn-danger .btn-block btn-primary"
+                                    className="btn btn-danger btn-block"
                                     onClick={handleDeleteDoneTasks}
                                 >
                                     Delete done tasks
@@ -77,7 +81,7 @@ export default class TodoList extends Component {
                             <div className="d-grid gap-2 col-6 mx-auto">
                                 <button
                                     type="button"
-                                    className="btn btn-danger .btn-block btn-primary"
+                                    className="btn btn-danger btn-block"
                                     onClick={clearList}
                                 >
                                     Delete all tasks
@@ -87,6 +91,6 @@ export default class TodoList extends Component {
                     </ul>
                 )}
             </Fragment>
-        )
+        );
     }
 }
